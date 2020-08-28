@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[31,)"
+issueTrackerURL = "https://github.com/YukkuriC/forge_playground/issues"
+
+[[mods]]
+    modId = "forge_greater_eye"
+    version = "${file.jarVersion}"
+    displayName = "Forge Greater Eye"
+    displayURL = "https://github.com/YukkuriC/forge_playground/tree/1.15.2-31.2.0-forge_greater_eye"
+    authors = "YukkuriC"
+    description = '''
+Forge port of Greater Eye Fabric mod
+https://www.curseforge.com/minecraft/mc-mods/greater-eye-of-ender-fabric'''
+
+[[dependencies.forge_greater_eye]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[31.2,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.forge_greater_eye]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.15.2,)"
+    ordering = "NONE"
+    side = "BOTH"

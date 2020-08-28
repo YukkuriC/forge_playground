@@ -1,0 +1,10 @@
+{
+    "item.forge_greater_eye.greater_eye": "强力末影之眼",
+    "item.forge_greater_eye.greater_eye.line1": "用于搜索多种原版结构",
+    "item.forge_greater_eye.greater_eye.line2": "潜行+右键以切换搜索目标",
+    "item.forge_greater_eye.greater_eye.message1": "强力末影之眼将搜索: %s",
+    "item.forge_greater_eye.greater_eye.message2": "搜索目标: %s",
+    "item.forge_greater_eye.greater_eye.message3": "最近的%s在%s方格以外",
+    "item.forge_greater_eye.greater_eye.404": "附近木有%s",
+    "item.forge_greater_eye.greater_eye.403": "只能在主世界使用"
+}

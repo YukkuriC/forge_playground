@@ -1,0 +1,10 @@
+{
+    "item.forge_greater_eye.greater_eye": "Greater Eye of Ender",
+    "item.forge_greater_eye.greater_eye.line1": "Points the way to many vanilla structures",
+    "item.forge_greater_eye.greater_eye.line2": "Shift + right-click to change structure",
+    "item.forge_greater_eye.greater_eye.message1": "Greater Eye of Ender will be looking for: %s",
+    "item.forge_greater_eye.greater_eye.message2": "Will search for: %s",
+    "item.forge_greater_eye.greater_eye.message3": "The nearest %s is %s blocks away",
+    "item.forge_greater_eye.greater_eye.404": "There's no %s nearby",
+    "item.forge_greater_eye.greater_eye.403": "Only available in Overworld"
+}
