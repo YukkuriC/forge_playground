@@ -6,5 +6,5 @@
     "item.forge_greater_eye.greater_eye.message2": "Will search for: %s",
     "item.forge_greater_eye.greater_eye.message3": "The nearest %s is %s blocks away",
     "item.forge_greater_eye.greater_eye.404": "There's no %s nearby",
-    "item.forge_greater_eye.greater_eye.403": "Only available in Overworld"
+    "item.forge_greater_eye.greater_eye.403": "Only available in vanilla dimensions"
 }

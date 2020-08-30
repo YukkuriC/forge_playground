@@ -17,7 +17,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.server.ServerWorld;
 
@@ -26,29 +28,54 @@ import java.util.HashMap;
 import java.util.List;
 
 public class GreaterEye extends Item {
-    static final Structure[] structureTypes = {
-            Structure.STRONGHOLD,
-            Structure.VILLAGE,
-            Structure.MINESHAFT,
-            Structure.SHIPWRECK,
-            Structure.PILLAGER_OUTPOST,
-            Structure.OCEAN_MONUMENT,
-            Structure.WOODLAND_MANSION,
-            Structure.DESERT_PYRAMID,
-            Structure.JUNGLE_TEMPLE,
+    static final String[] structOverworld = {
+            "Mineshaft",
+            "Pillager_Outpost",
+            "Stronghold",
+            "Jungle_Pyramid",
+            "Ocean_Ruin",
+            "Desert_Pyramid",
+            "Igloo",
+            "Swamp_Hut",
+            "Monument",
+            "Mansion",
+            "Buried_Treasure",
+            "Shipwreck",
+            "Village",
     };
-    static HashMap<Structure, Structure> nextStruct;
+    static final String[] structNether = {
+            "Fortress",
+    };
+    static final String[] structEnd = {
+            "EndCity",
+    };
+    static final HashMap<DimensionType, String[]> structPool = new HashMap<>();
+    static final HashMap<DimensionType, Integer> structIndex = new HashMap<>();
     static boolean prepared = false;
 
-    Structure currentStruct = structureTypes[0];
+    @Nullable
+    static String getCurrentStructure(DimensionType dim) {
+        if (!structPool.containsKey(dim)) return null;
+        return structPool.get(dim)[structIndex.get(dim)];
+    }
+
+    static boolean nextStructure(DimensionType dim) {
+        if (!structPool.containsKey(dim)) return false;
+        int size = structPool.get(dim).length;
+        structIndex.put(dim, (structIndex.get(dim) + 1) % size);
+        return true;
+    }
 
     public GreaterEye(Properties properties) {
         super(properties);
-        if (!prepared) {
-            nextStruct = new HashMap<>();
-            for (int i = 0; i < structureTypes.length; i++)
-                nextStruct.put(structureTypes[i], structureTypes[(i + 1) % structureTypes.length]);
 
+        // init structures
+        if (!prepared) {
+            structPool.put(DimensionType.OVERWORLD, structOverworld);
+            structPool.put(DimensionType.THE_NETHER, structNether);
+            structPool.put(DimensionType.THE_END, structEnd);
+            for (DimensionType dim : structPool.keySet())
+                structIndex.put(dim, 0);
             prepared = true;
         }
     }
@@ -57,9 +84,10 @@ public class GreaterEye extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
         if (worldIn.isRemote) return ActionResult.resultPass(stack);
+        DimensionType dim = worldIn.dimension.getType();
         if (playerIn.isSneaking()) {
-            currentStruct = nextStruct.get(currentStruct);
-            playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.message1", null, currentStruct.getStructureName()));
+            if (nextStructure(dim))
+                playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.message1", null, getCurrentStructure(dim)));
         } else {
             playerIn.setActiveHand(handIn);
             if (worldIn instanceof ServerWorld) {
@@ -71,18 +99,22 @@ public class GreaterEye extends Item {
     }
 
     void findStructureAndShoot(ServerWorld worldIn, PlayerEntity playerIn, ItemStack stack) {
-        if (!worldIn.dimension.isSurfaceWorld()) {
-            playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.403", TextFormatting.DARK_RED, currentStruct.getStructureName()));
+        // validate dimension
+        DimensionType dim = worldIn.dimension.getType();
+        if (!structPool.containsKey(dim)) {
+            playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.403", TextFormatting.DARK_RED));
             return;
         }
-        ChunkGenerator chunkGen = worldIn.getChunkProvider().getChunkGenerator();
-        BlockPos plrPos = playerIn.getPosition();
-        BlockPos locPos = currentStruct.findNearest(worldIn, chunkGen, plrPos, 100, false);
+        String structName = getCurrentStructure(dim);
 
+        // find structure
+        BlockPos plrPos = playerIn.getPosition();
+        BlockPos locPos = worldIn.findNearestStructure(structName, plrPos, 100, false);
         if (locPos == null) {
-            playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.404", TextFormatting.DARK_RED, currentStruct.getStructureName()));
+            playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.404", TextFormatting.DARK_RED, structName));
             return;
         }
+
         double
                 userX = playerIn.getPosX(),
                 userY = playerIn.getPosY() + playerIn.getEyeHeight(),
@@ -90,7 +122,7 @@ public class GreaterEye extends Item {
 
         int structureDistance = MathHelper.floor(getDistance(plrPos.getX(), plrPos.getZ(), locPos.getX(), locPos.getZ()));
 
-        playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.message3", null, currentStruct.getStructureName(), structureDistance));
+        playerIn.sendMessage(Helper.GetLang("item.forge_greater_eye.greater_eye.message3", null, structName, structureDistance));
 
         // use success
         GreaterEyeOrb finder = new GreaterEyeOrb(worldIn, userX, userY, userZ);
@@ -113,6 +145,10 @@ public class GreaterEye extends Item {
     public void addInformation(ItemStack itemStack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(Helper.GetLang("item.forge_greater_eye.greater_eye.line1", TextFormatting.YELLOW));
         tooltip.add(Helper.GetLang("item.forge_greater_eye.greater_eye.line2", TextFormatting.YELLOW));
-        tooltip.add(Helper.GetLang("item.forge_greater_eye.greater_eye.message2", TextFormatting.LIGHT_PURPLE, currentStruct.getStructureName()));
+        String struct = null;
+        if (world != null)
+            struct = getCurrentStructure(world.dimension.getType());
+        if (struct != null)
+            tooltip.add(Helper.GetLang("item.forge_greater_eye.greater_eye.message2", TextFormatting.LIGHT_PURPLE, struct));
     }
 }
