@@ -2,7 +2,7 @@ package io.yukkuric.forge_greater_eye.item;
 
 import io.yukkuric.forge_greater_eye.ForgeGreaterEye;
 import io.yukkuric.forge_greater_eye.entity.GreaterEyeOrb;
-import io.yukkuric.forge_greater_eye.misc.Helper;
+import io.yukkuric.misc.Helper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

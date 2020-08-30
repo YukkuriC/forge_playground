@@ -1,7 +1,7 @@
 package io.yukkuric.forge_greater_eye;
 
+import io.yukkuric.misc.RegHelper;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,6 +16,7 @@ public class ForgeGreaterEye {
     public static final Logger logger = LogManager.getLogger();
 
     public ForgeGreaterEye() {
-        ItemManager.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RegHelper.Init(ID);
+        ItemManager.register();
     }
 }
