@@ -4,13 +4,15 @@ issueTrackerURL = "https://github.com/YukkuriC/forge_playground/issues"
 
 [[mods]]
     modId = "create_legacy"
-    version = "1.0"
+    version = "${file.jarVersion}"
     displayName = "Create Legacy"
     displayURL = "https://github.com/YukkuriC/forge_playground/tree/1.15.2-31.2.0-create_legacy"
     authors = "YukkuriC"
     description = '''
-Recovers some removed stuff in Create
-Original mod: https://github.com/Creators-of-Create/Create'''
+Recovers some removed stuff in Create 0.2.3:
+https://github.com/Creators-of-Create/Create/tree/mc1.14/release
+Built on MC1.15.2, needs Create 0.2.4d (below) to load recipes
+https://www.curseforge.com/minecraft/mc-mods/create'''
 
 [[dependencies.create_legacy]]
     modId = "forge"

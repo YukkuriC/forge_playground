@@ -17,7 +17,7 @@ import static io.yukkuric.create_legacy.enums.AllToolTypes.*;
 public class RoseQuartzTool extends AbstractToolItem {
 
     public static Multimap<String, AttributeModifier> rangeModifier;
-    static final UUID attributeId = UUID.fromString("7f7dbdb2-0d0d-458a-aa40-ac7633691f66");
+    static final UUID attributeId = UUID.fromString("02304d9a-7f8d-43cb-aa73-fbf334a3d91c"); // mechanical arm conflict
 
     public RoseQuartzTool(float attackDamageIn, float attackSpeedIn, Item.Properties builder, AllToolTypes... types) {
         super(attackDamageIn, attackSpeedIn, AllToolTiers.ROSE_QUARTZ, builder, types);
