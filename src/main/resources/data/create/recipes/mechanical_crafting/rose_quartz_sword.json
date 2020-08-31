@@ -1,9 +1,9 @@
 {
     "type": "create:mechanical_crafting",
         "pattern": [
-			" C ",
-			"RGR",
-            "RZR",
+            " R ",
+			" R ",
+			"CGC",
 			" Z "
         ],
         "key": {
@@ -21,13 +21,7 @@
             }
         },
 	"result": {
-		"item": "create_legacy:rose_quartz_pickaxe",
+		"item": "create_legacy:rose_quartz_sword",
 		"count": 1
-	},
-	"conditions": [
-		{
-			"type": "create:module",
-			"module": "contraptions"
-		}
-	]
+	}
 }

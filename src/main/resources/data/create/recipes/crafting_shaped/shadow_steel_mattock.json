@@ -16,11 +16,5 @@
 	"result": {
 		"item": "create_legacy:shadow_steel_mattock",
 		"count": 1
-	},
-	"conditions": [
-		{
-			"type": "create:module",
-			"module": "curiosities"
-		}
-	]
+	}
 }

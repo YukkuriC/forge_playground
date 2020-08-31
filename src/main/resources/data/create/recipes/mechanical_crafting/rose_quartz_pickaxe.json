@@ -3,7 +3,7 @@
         "pattern": [
 			" C ",
 			"RGR",
-            "RZ ",
+            "RZR",
 			" Z "
         ],
         "key": {
@@ -21,13 +21,7 @@
             }
         },
 	"result": {
-		"item": "create_legacy:rose_quartz_axe",
+		"item": "create_legacy:rose_quartz_pickaxe",
 		"count": 1
-	},
-	"conditions": [
-		{
-			"type": "create:module",
-			"module": "contraptions"
-		}
-	]
+	}
 }

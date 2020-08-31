@@ -2,10 +2,10 @@
     "type": "create:mixing",
     "ingredients": [
     	{
-    		"item": "minecraft:golden_pickaxe"
+    		"item": "minecraft:golden_shovel"
     	},
 		{
-    		"item": "create:obsidian_dust"
+    		"item": "create:powdered_obsidian"
     	},
 		{
 			"item": "minecraft:blaze_powder",
@@ -14,7 +14,7 @@
     ], 
 	"results": [
 		{
-			"item": "create_legacy:blazing_pickaxe",
+			"item": "create_legacy:blazing_shovel",
 			"count": 1
 		}
 	]

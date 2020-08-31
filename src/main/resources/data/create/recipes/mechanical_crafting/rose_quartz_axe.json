@@ -1,9 +1,9 @@
 {
     "type": "create:mechanical_crafting",
         "pattern": [
-			" R ",
-			"CGC",
-            " Z ",
+			" C ",
+			"RGR",
+            "RZ ",
 			" Z "
         ],
         "key": {
@@ -21,13 +21,7 @@
             }
         },
 	"result": {
-		"item": "create_legacy:rose_quartz_shovel",
+		"item": "create_legacy:rose_quartz_axe",
 		"count": 1
-	},
-	"conditions": [
-		{
-			"type": "create:module",
-			"module": "contraptions"
-		}
-	]
+	}
 }
