@@ -1,12 +1,9 @@
 package io.yukkuric.create_legacy.enums;
 
-import io.yukkuric.create_legacy.ItemManager;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
-import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Supplier;
 

@@ -10,5 +10,15 @@
   "item.create_legacy.rose_quartz_pickaxe": "Gilded Quartz Pickaxe",
   "item.create_legacy.rose_quartz_shovel": "Gilded Quartz Shovel",
   "item.create_legacy.rose_quartz_axe": "Gilded Quartz Axe",
-  "item.create_legacy.rose_quartz_sword": "Gilded Quartz Blade"
+  "item.create_legacy.rose_quartz_sword": "Gilded Quartz Blade",
+  "create_legacy.tooltip.holdKey": "Hold [%1$s]",
+  "create_legacy.tooltip.holdKeyOrKey": "Hold [%1$s] or [%2$s]",
+  "create_legacy.tooltip.keyShift": "Shift",
+  "create_legacy.tooltip.keyCtrl": "Ctrl",
+  "tool.create_legacy.shadow_steel.tooltip": "SHADOW STEEL TOOLS",
+  "tool.create_legacy.shadow_steel.tooltip.summary": "A fast and powerful tool that _destroys_ _drops_ from any block or entity. Killed mobs can drop _more_ _experience_ based on the _Looting_ modifier of this tool.",
+  "tool.create_legacy.blazing.tooltip": "BLAZING TOOLS",
+  "tool.create_legacy.blazing.tooltip.summary": "This tool will _melt_ _broken_ _blocks_ and _ignite_ _attacked_ _mobs_. It will not lose Durability while being used in the _Nether_.",
+  "tool.create_legacy.rose_quartz.tooltip": "ROSE QUARTZ TOOLS",
+  "tool.create_legacy.rose_quartz.tooltip.summary": "This tool grants you a _greater_ _reach_ for _breaking_ _blocks_ or _placing_ _blocks_ from the off-hand."
 }

@@ -10,5 +10,15 @@
   "item.create_legacy.rose_quartz_pickaxe": "玫瑰石英镐",
   "item.create_legacy.rose_quartz_shovel": "玫瑰石英铲",
   "item.create_legacy.rose_quartz_axe": "玫瑰石英斧",
-  "item.create_legacy.rose_quartz_sword": "玫瑰石英剑"
+  "item.create_legacy.rose_quartz_sword": "玫瑰石英剑",
+  "create_legacy.tooltip.holdKey": "按住 [%1$s]",
+  "create_legacy.tooltip.holdKeyOrKey": "按住 [%1$s] 或 [%2$s]",
+  "create_legacy.tooltip.keyShift": "Shift",
+  "create_legacy.tooltip.keyCtrl": "Ctrl",
+  "tool.create_legacy.shadow_steel.tooltip": "SHADOW STEEL TOOLS",
+  "tool.create_legacy.shadow_steel.tooltip.summary": "一种强力的工具， 但是_破坏方块_的同时也会_破坏其掉落物_。 杀死生物会掉落更多经验， 经验的数量和_抢夺_的附魔等级有关",
+  "tool.create_legacy.blazing.tooltip": "BLAZING TOOLS",
+  "tool.create_legacy.blazing.tooltip.summary": "将会_冶炼_被破坏的方块,并且_点燃_怪物,在_下界_中不会减少耐久",
+  "tool.create_legacy.rose_quartz.tooltip": "ROSE QUARTZ TOOLS",
+  "tool.create_legacy.rose_quartz.tooltip.summary": "这个工具将会让你的_手更长_， 伸的更远."
 }
