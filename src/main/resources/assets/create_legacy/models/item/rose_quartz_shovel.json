@@ -1,0 +1,6 @@
+{
+  "parent": "create_legacy:item/rose_quartz_tool",
+  "textures": {
+    "layer0": "create_legacy:item/rose_quartz_shovel"
+  }
+}

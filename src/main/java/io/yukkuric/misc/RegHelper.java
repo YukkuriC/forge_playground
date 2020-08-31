@@ -35,6 +35,7 @@ public class RegHelper {
     // (register from class) register
     public static <bC extends IForgeRegistryEntry<bC>> Function<Object[], Function<Class<?>, RegistryObject<bC>>>
     GenGen(Class<bC> baseCls, Class<?>[] constructors) {
+        Function<Object[], Function<Class<?>, RegistryObject<bC>>> x=(Object... params) -> Gen(baseCls, constructors, params);
         return (Object... params) -> Gen(baseCls, constructors, params);
     }
 

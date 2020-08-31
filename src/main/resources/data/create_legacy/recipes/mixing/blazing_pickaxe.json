@@ -1,0 +1,21 @@
+{
+    "type": "create:mixing",
+    "ingredients": [
+    	{
+    		"item": "minecraft:golden_pickaxe"
+    	},
+		{
+    		"item": "create:obsidian_dust"
+    	},
+		{
+			"item": "minecraft:blaze_powder",
+			"count": 4
+		}
+    ], 
+	"results": [
+		{
+			"item": "create_legacy:blazing_pickaxe",
+			"count": 1
+		}
+	]
+}

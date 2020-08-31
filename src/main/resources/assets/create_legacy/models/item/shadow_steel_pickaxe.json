@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "create_legacy:item/shadow_steel_pickaxe"
+  }
+}

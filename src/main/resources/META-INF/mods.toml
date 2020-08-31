@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[31,)"
+issueTrackerURL = "https://github.com/YukkuriC/forge_playground/issues"
+
+[[mods]]
+    modId = "create_legacy"
+    version = "1.0"
+    displayName = "Create Legacy"
+    displayURL = "https://github.com/YukkuriC/forge_playground/tree/1.15.2-31.2.0-create_legacy"
+    authors = "YukkuriC"
+    description = '''
+Recovers some removed stuff in Create
+Original mod: https://github.com/Creators-of-Create/Create'''
+
+[[dependencies.create_legacy]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[31.2,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.create_legacy]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.15.2,)"
+    ordering = "NONE"
+    side = "BOTH"
