@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[31,)"
+issueTrackerURL = "https://github.com/YukkuriC/forge_playground/issues"
+
+[[mods]]
+    modId = "raid_mul"
+    version = "${file.jarVersion}"
+    displayName = "Raid Multiplier"
+    displayURL = "https://github.com/YukkuriC/forge_playground/tree/1.15.2-31.2.0-raid_mul"
+    authors = "YukkuriC"
+    description = '''
+Increases the threat of raid events, TODO: also adds an item to summon a raid event.'''
+
+[[dependencies.raid_mul]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[31.2,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.raid_mul]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.15.2,)"
+    ordering = "NONE"
+    side = "BOTH"
