@@ -1,6 +1,7 @@
 package io.yukkuric.raid_mul.basis;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.monster.AbstractRaiderEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -22,6 +23,7 @@ public class RaidEnforcer {
     // config
     static final int nGroup = 3;
     static final int checkerGap = 20;
+    static final float forceRainRate = 0.1f;
 
     // containers
     static Map<Integer, Raid> rawPool;
@@ -97,7 +99,7 @@ public class RaidEnforcer {
     void extraWave() {
         BlockPos[] spawns = getSpawns(nGroup);
         for (BlockPos pos : spawns) {
-            if (pos == null || world.rand.nextFloat() < 0.1) spawnRain();
+            if (pos == null || world.rand.nextFloat() < forceRainRate) spawnRain();
             else spawnExtra(pos);
         }
         raid.updateBarPercentage();
@@ -127,15 +129,16 @@ public class RaidEnforcer {
 
     void spawnRain() {
         BlockPos center = raid.getCenter();
-        float
-                dist = world.rand.nextFloat() * 32 + 32,
-                r = world.rand.nextFloat() * ((float) Math.PI * 2F),
-                dx = MathHelper.cos(r) * dist + 0.5f,
-                dz = MathHelper.sin(r) * dist + 0.5f;
         for (Raid.WaveMember member : Raid.WaveMember.VALUES) {
             int spawnCount = getSpawnCount(member);
-            for (int i = 0; i < spawnCount; ++i)
+            for (int i = 0; i < spawnCount; ++i) {
+                float
+                        dist = world.rand.nextFloat() * 32 + 32,
+                        r = world.rand.nextFloat() * ((float) Math.PI * 2F),
+                        dx = MathHelper.cos(r) * dist + 0.5f,
+                        dz = MathHelper.sin(r) * dist + 0.5f;
                 floatDrop(member.type, center.getX() + dx, center.getY() + 32, center.getZ() + dz);
+            }
         }
     }
 
@@ -145,6 +148,7 @@ public class RaidEnforcer {
         enemy.setPosition(x, y + 32 + 32 * world.rand.nextFloat(), z);
         enemy.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 600));
         raid.joinRaid(currWave, enemy, null, true);
+        enemy.onInitialSpawn(world, world.getDifficultyForLocation(raid.getCenter()), SpawnReason.EVENT, null, null);
         world.addEntity(enemy);
     }
 
