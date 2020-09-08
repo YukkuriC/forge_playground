@@ -1,5 +1,6 @@
 package io.yukkuric.raid_mul;
 
+import io.yukkuric.misc.RegHelper;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,5 +12,7 @@ public class RaidMulMod {
     public static final Logger logger = LogManager.getLogger();
 
     public RaidMulMod() {
+        RegHelper.Init(ID);
+        new ItemManager();
     }
 }

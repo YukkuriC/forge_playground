@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#x#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "x": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "raid_mul:totem_iron_golem",
+    "count": 3
+  }
+}
